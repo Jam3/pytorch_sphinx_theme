@@ -11771,7 +11771,8 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   text-align: center;
   border-bottom: 1px solid #e2e2e2;
 }
-.pytorch-left-menu .unstable a {
+.pytorch-left-menu .unstable a,
+.pytorch-left-menu .unstable a:visited {
   color: #de3412;
 }
 
