@@ -11714,10 +11714,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   font-style: normal;
   line-height: 24px;
 }
-
-.pytorch-left-menu a:link, .pytorch-left-menu a:visited, .pytorch-left-menu a:hover, .pytorch-right-menu a:link, .pytorch-right-menu a:visited, .pytorch-right-menu a:hover {
-  color: #6c6c6d;
-}
 @media screen and (min-width: 1600px) {
   .pytorch-left-menu .versions .version-select {
     display: none;
