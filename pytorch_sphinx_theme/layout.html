@@ -304,6 +304,7 @@
             {%- block document %}
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               {% block body %}{% endblock %}
+              {% block version_list %}{% endblock %}
              </article>
              {% if self.comments()|trim %}
              <div class="articleComments">
