@@ -362,9 +362,10 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-family: inherit;
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: normal;
+  line-height: 40px;
   color: inherit;
+  font-size: 30px;
 }
 
 h1, .h1 {
@@ -10187,7 +10188,7 @@ article.pytorch-article blockquote {
   line-height: 1.375rem;
   color: #262626;
   letter-spacing: 0.01px;
-  font-weight: 500;
+  font-weight: 400;
 }
 article.pytorch-article table {
   margin-bottom: 2.5rem;
@@ -10253,6 +10254,22 @@ article.pytorch-article img {
   width: 100%;
 }
 
+/*New versions page*/
+article.pytorch-article #pick-a-version ul.simple {
+  padding-left: 0.875rem;
+}
+
+article.pytorch-article #pick-a-version ul.simple {
+  list-style: none;
+}
+
+article.pytorch-article #pick-a-version ul.simple li::before {
+  content: "\2022";
+  color: #de3412;
+  position: absolute;
+  margin-left: -1em;
+}
+
 html {
   height: 100%;
 }
@@ -10290,11 +10307,11 @@ p a:hover {
 p a:link,
 p a:visited,
 p a:hover {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 .wy-breadcrumbs li a {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 ul.pytorch-breadcrumbs {
@@ -10306,7 +10323,7 @@ ul.pytorch-breadcrumbs li {
   font-size: 0.875rem;
 }
 ul.pytorch-breadcrumbs a {
-  color: #ee4c2c;
+  color: #de3412;
   text-decoration: none;
 }
 
@@ -10393,7 +10410,7 @@ ul.pytorch-breadcrumbs a {
   cursor: pointer;
 }
 .rst-content footer .rating-container .stars-outer .star-fill {
-  color: #ee4c2c;
+  color: #de3412;
 }
 .rst-content footer div[role="contentinfo"] {
   padding-top: 2.5rem;
@@ -10466,7 +10483,7 @@ article.pytorch-article h3,
 article.pytorch-article h4,
 article.pytorch-article h5,
 article.pytorch-article h6 {
-  font-weight: normal;
+  font-weight: 400;
 }
 article.pytorch-article h1 a,
 article.pytorch-article h2 a,
@@ -10563,7 +10580,7 @@ article.pytorch-article .sphx-glr-thumbcontainer .figure a.reference.internal {
 }
 @media screen and (min-width: 768px) {
   article.pytorch-article .sphx-glr-thumbcontainer:after {
-    background-color: #ee4c2c;
+    background-color: #de3412;
   }
 }
 
@@ -10584,7 +10601,7 @@ article.pytorch-article .function dt, article.pytorch-article .attribute dt, art
   position: relative;
   background: #f3f4f7;
   padding: 0.5rem;
-  border-left: 3px solid #ee4c2c;
+  border-left: 3px solid #de3412;
   word-wrap: break-word;
   padding-right: 100px;
 }
@@ -10603,7 +10620,7 @@ article.pytorch-article .function dt a, article.pytorch-article .attribute dt a,
           transform: perspective(1px) translateY(-50%);
 }
 article.pytorch-article .function dt:hover .viewcode-link, article.pytorch-article .attribute dt:hover .viewcode-link, article.pytorch-article .class dt:hover .viewcode-link {
-  color: #ee4c2c;
+  color: #de3412;
 }
 article.pytorch-article .function .anchorjs-link, article.pytorch-article .attribute .anchorjs-link, article.pytorch-article .class .anchorjs-link {
   display: inline;
@@ -10678,7 +10695,7 @@ article.pytorch-article .attribute .has-code {
 }
 article.pytorch-article .class dt {
   border-left: none;
-  border-top: 3px solid #ee4c2c;
+  border-top: 3px solid #de3412;
   padding-left: 4em;
 }
 article.pytorch-article .class dt em.property {
@@ -10691,7 +10708,7 @@ article.pytorch-article .class dd .docutils dt {
 article.pytorch-article .class em.property {
   text-transform: uppercase;
   font-style: normal;
-  color: #ee4c2c;
+  color: #de3412;
   font-size: 1rem;
   letter-spacing: 0;
   padding-right: 0.75rem;
@@ -10703,7 +10720,7 @@ article.pytorch-article .class dl dt em.property {
 }
 article.pytorch-article .class .method dt,
 article.pytorch-article .class .staticmethod dt {
-  border-left: 3px solid #ee4c2c;
+  border-left: 3px solid #de3412;
   border-top: none;
 }
 article.pytorch-article .class .method dt,
@@ -10977,7 +10994,7 @@ article.pytorch-article .admonition > p:last-of-type {
 }
 @media screen and (min-width: 768px) {
   .pytorch-article div.sphx-glr-download a:after {
-    background-color: #ee4c2c;
+    background-color: #de3412;
   }
 }
 @media screen and (min-width: 768px) {
@@ -11047,7 +11064,7 @@ article.pytorch-article .wy-table-responsive table tbody td {
 }
 article.pytorch-article .wy-table-responsive table tbody td .pre {
   background: #ffffff;
-  color: #ee4c2c;
+  color: #de3412;
   font-size: 87.5%;
 }
 article.pytorch-article .wy-table-responsive table tbody td code {
@@ -11134,33 +11151,33 @@ article.pytorch-article .math img {
 a:link,
 a:visited,
 a:hover {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 ::-webkit-input-placeholder {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 ::-moz-placeholder {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 :-ms-input-placeholder {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 :-moz-placeholder {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 @media screen and (min-width: 768px) {
   .site-footer a:hover {
-    color: #ee4c2c;
+    color: #de3412;
   }
 }
 
 .docs-tutorials-resources a {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 .header-holder {
@@ -11169,19 +11186,19 @@ a:hover {
 }
 
 .header-holder .main-menu ul li.active:after {
-  color: #ee4c2c;
+  color: #de3412;
 }
 .header-holder .main-menu ul li.active a {
-  color: #ee4c2c;
+  color: #de3412;
 }
 @media screen and (min-width: 1100px) {
   .header-holder .main-menu ul li a:hover {
-    color: #ee4c2c;
+    color: #de3412;
   }
 }
 
 .mobile-main-menu.open ul li.active a {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
   .pytorch-call-to-action-links {
@@ -11707,7 +11724,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   width: 100%;
   height: 45px;
   text-align: center;
-  color: #F05732;
+  color: #de3412;
   background: none;
   border: solid 1px #e2e2e2;
   font-weight: 400;
@@ -12135,10 +12152,10 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   left: -12px;
 }
 .pytorch-right-menu li.active > a {
-  color: #ee4c2c;
+  color: #de3412;
 }
 .pytorch-right-menu li.active > a span.pre, .pytorch-right-menu li.active > a:before {
-  color: #ee4c2c;
+  color: #de3412;
 }
 .pytorch-right-menu li.active > a:after {
   content: "\2022";
@@ -12204,7 +12221,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 
 #pytorch-right-menu .side-scroll-highlight {
-  color: #ee4c2c;
+  color: #de3412;
 }
 
 .header-container {
