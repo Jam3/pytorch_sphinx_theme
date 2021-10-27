@@ -10255,15 +10255,15 @@ article.pytorch-article img {
 }
 
 /*New versions page*/
-article.pytorch-article #pick-a-version ul.simple {
+article.pytorch-article ul.simple {
   padding-left: 0.875rem;
 }
 
-article.pytorch-article #pick-a-version ul.simple {
+article.pytorch-article ul.simple {
   list-style: none;
 }
 
-article.pytorch-article #pick-a-version ul.simple li::before {
+article.pytorch-article ul.simple li::before {
   content: "\2022";
   color: #de3412;
   position: absolute;
