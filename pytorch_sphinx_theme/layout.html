@@ -246,7 +246,9 @@
                                           titles_only=theme_titles_only|tobool) %}
             {% endif %}
             {% if global_toc %}
+              {% block before_global_toc_sidebar %}{% endblock %}
               {{ global_toc }}
+              {% block after_global_toc_sidebar %}{% endblock %}
             {% else %}
               <!-- Local TOC -->
               <div class="local-toc">{{ toc }}</div>

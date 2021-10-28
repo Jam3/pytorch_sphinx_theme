@@ -11861,6 +11861,14 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   margin: 0;
   padding: 10px 17px 10px 30px;
 }
+
+.pytorch-left-menu p.caption.single-item>a.reference.internal {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
 .pytorch-left-menu ul li.toctree-l1 {
   font-weight: 400;
 }
@@ -11881,11 +11889,19 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-left-menu p.caption {
   text-transform: uppercase;
 }
-
 .pytorch-left-menu p.caption.current {
   border-left-color: none;
 }
+.pytorch-left-menu p.caption.single-item.current {
+  background-color: #de3412;
+}
+.pytorch-left-menu p.caption.single-item.current>a.reference.internal {
+  color: #ffffff;
+}
 @media screen and (min-width: 1600px) {
+  .pytorch-left-menu p.caption.current {
+    border-left-color: #de3412;
+  }
   .pytorch-left-menu p.caption.current {
     border-left-color: #de3412;
   }

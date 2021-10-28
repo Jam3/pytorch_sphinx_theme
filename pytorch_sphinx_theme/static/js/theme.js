@@ -987,7 +987,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   var caption = "#pytorch-left-menu p.caption";
   var collapseAdded = $(this).not("checked");
-  $(caption).each(function () {
+  $(caption).not('.single-item').each(function () {
     var menuName = this.innerText.replace(/[^\w\s]/gi, "").trim();
     $(this).find("span").addClass("checked");
     if (collapsedSections.includes(menuName) == true && collapseAdded && sessionStorage.getItem(menuName) !== "expand" || sessionStorage.getItem(menuName) == "collapse") {
