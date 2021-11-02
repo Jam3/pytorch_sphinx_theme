@@ -10154,6 +10154,14 @@ article.pytorch-article {
     max-width: 100%;
     margin: 0;
   }
+
+  article.pytorch-article>.section {
+    max-width: 70%;
+  }
+
+  article.pytorch-article>#docs-overview.section {
+    max-width: 100%;
+  }
 }
 
 article.pytorch-article>.section>*,
@@ -10166,8 +10174,11 @@ article.pytorch-article>.section>*,
     margin-left: 4.25rem;
     margin-right: 4.25rem;
   }
-}
 
+  article.pytorch-article>#docs-overview.section>* {
+    margin-right: 10rem;
+  }
+}
 
 article.pytorch-article h2,
 article.pytorch-article h3,
