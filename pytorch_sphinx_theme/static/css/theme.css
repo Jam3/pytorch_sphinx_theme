@@ -426,6 +426,7 @@ hr {
   margin-bottom: 1rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 small,
@@ -9934,7 +9935,7 @@ pre {
 }
 
 .site-footer {
-  padding: 2.5rem 0;
+  padding: 2.5rem 1.875rem;
   width: 100%;
   background: #000000;
   background-size: 100%;
@@ -10148,10 +10149,25 @@ article.pytorch-article {
   max-width: 920px;
   margin: 0 auto;
 }
-article.pytorch-article>.section>* {
+@media screen and (min-width: 1600px) {
+  article.pytorch-article {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+article.pytorch-article>.section>*,
+.pytorch-content-left .rst-content footer {
   margin-left: 1.875rem;
   margin-right: 1.875rem;
 }
+@media screen and (min-width: 1600px) {
+  article.pytorch-article>.section>* {
+    margin-left: 4.25rem;
+    margin-right: 4.25rem;
+  }
+}
+
 
 article.pytorch-article h2,
 article.pytorch-article h3,
@@ -10281,11 +10297,22 @@ article.pytorch-article .section p {
   line-height: 24px;
   color: #262626;
 }
+@media screen and (min-width: 1600px) {
+  article.pytorch-article .section p {
+    font-size: 16px;
+  }
+}
 
 article.pytorch-article .section p:first-of-type {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 350;
   line-height: 28px;
+}
+@media screen and (min-width: 1600px) {
+  article.pytorch-article .section p:first-of-type {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 article.pytorch-article .section p strong {
@@ -10535,6 +10562,11 @@ article.pytorch-article .section:first-of-type h1:first-of-type {
   background-position: top 6px left 2px;
   background-repeat: no-repeat;
   padding-left: 30px;
+}
+@media screen and (min-width: 1600px) {
+  article.pytorch-article .section:first-of-type h1:first-of-type {
+    background-position: top 11px left 0;
+  }
 }
 
 article.pytorch-article .sphx-glr-thumbcontainer {
@@ -11167,7 +11199,7 @@ article.pytorch-article .math img {
 @media screen and (min-width: 1600px) {
   .pytorch-breadcrumbs-wrapper {
     width: 850px;
-    margin-left: 1.875rem;
+    margin-left: 4.25rem;
   }
 }
 .pytorch-breadcrumbs-wrapper .pytorch-breadcrumbs-aside {
@@ -11629,7 +11661,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 @media screen and (min-width: 1101px) {
   .pytorch-content-wrap {
-    padding-top: 45px;
+    padding-top: 90px;
     float: left;
     width: 100%;
     display: block;
@@ -11656,17 +11688,16 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 @media screen and (min-width: 1101px) {
   .pytorch-content-left {
     margin-top: 0;
-    margin-left: 3%;
     width: 75%;
     float: left;
   }
 }
 @media screen and (min-width: 1600px) {
   .pytorch-content-left {
-    /* width: 850px; */
-    margin-left: 30px;
+    width: 100%;
   }
 }
+
 .pytorch-content-left .main-content ul.simple {
   padding-bottom: 1.25rem;
 }
@@ -12352,26 +12383,14 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     position: absolute;
     z-index: 1;
   }
-  .pytorch-page-level-bar.left-menu-is-fixed {
-    position: fixed;
-    top: 0;
-    left: 25%;
-    padding-left: 0;
-    right: 0;
-    width: 75%;
-  }
 }
 @media screen and (min-width: 1600px) {
   .pytorch-page-level-bar {
+    margin-top: 20px;
     left: 0;
     right: 0;
     width: auto;
     z-index: 1;
-  }
-  .pytorch-page-level-bar.left-menu-is-fixed {
-    left: 350px;
-    right: 0;
-    width: auto;
   }
 }
 .pytorch-page-level-bar ul, .pytorch-page-level-bar li {
@@ -12593,6 +12612,11 @@ article.pytorch-article > .section > .sphinx-tabs {
   overflow-x: auto;
   margin-left: 1.875rem;
 }
+@media screen and (min-width: 1600px) {
+  .sphinx-tabs div[role="tablist"] {
+    margin-left: 4.25rem;
+  }
+}
 
 .sphinx-tabs div[role="tablist"] button {
   background-color: transparent;
@@ -12626,6 +12650,45 @@ article.pytorch-article > .section > .sphinx-tabs {
   background-color: #f6f6f6;
   padding: 24px 1.875rem 30px 1.875rem;
 }
+@media screen and (min-width: 1600px) {
+  .sphinx-tabs .sphinx-tabs-panel {
+    padding: 40px 4.25rem;
+    border-top: 1px solid #e6e6e6;
+  }
+}
+
+article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p {
+  font-size: 20px;
+  line-height: 28px;
+}
+article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type {
+  font-size: 24px;
+  line-height: 32px;
+}
+@media screen and (min-width: 1600px) {
+  article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p {
+    font-size: 24px;
+    line-height: 32px;
+    width: 60%;
+  }
+
+  article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel .toctree-wrapper a {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel .toctree-wrapper ul {
+    width: 90%;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
 
 .sphinx-tabs .sphinx-tabs-panel p:first-of-type {
   text-transform: uppercase;
@@ -12638,6 +12701,112 @@ article.pytorch-article > .section > .sphinx-tabs {
 
 .sphinx-tabs .sphinx-tabs-panel .toctree-wrapper .caption {
   display: none;
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive {
+  margin-top: 30px;
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr {
+  border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #bbbbbb;
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody .row-odd {
+  background-color: #f6f6f6;
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td {
+  margin: 0;
+  padding: 30px 16px 20px 0;
+  vertical-align: top;
+}
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td:first-of-type {
+  width: 115px;
+}
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td:first-of-type:empty {
+  width: 0;
+}
+@media screen and (min-width: 1600px) {
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td {
+    padding: 20px 0;
+  }
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td:first-of-type {
+    width: 170px;
+  }
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td:last-of-type {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 1fr;
+    padding-top: 40px;
+  }
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:first-of-type img {
+  width: 76px;
+}
+@media screen and (min-width: 1600px) {
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:first-of-type img {
+    width: 107px;
+  }
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p strong {
+  text-transform: none;
+  font-size: 16px;
+  line-height: 15px;
+  color: #262626;
+  font-weight: 400;
+}
+@media screen and (min-width: 1600px) {
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p strong {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p {
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 12px;
+}
+@media screen and (min-width: 1600px) {
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:first-of-type {
+  line-height: 0;
+}
+
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:last-of-type {
+  margin-top: 10px;
+}
+.sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:last-of-type a:after {
+  content: " ";
+  background-image: url("../images/chevron-right-orange.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 7px;
+  padding-right: 20px;
+}
+@media screen and (min-width: 1600px) {
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table {
+    width: 90%;
+  }
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:last-of-type a:after {
+    background-size: 8px;
+    padding-bottom: 3px;
+    padding-right: 23px;
+  }
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:last-of-type {
+    width: auto;
+    text-align: right;
+  }
+  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:nth-child(2) {
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=theme.css.map */
