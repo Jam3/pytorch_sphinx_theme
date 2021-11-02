@@ -839,7 +839,7 @@ function ThemeNav () {
             // If we found a matching link then reset current and re-apply
             // otherwise retain the existing match
             if (link.length > 0) {
-                $('.pytorch-menu-vertical .current').removeClass('current');
+                $('.pytorch-menu-vertical .current').not('.single-item').removeClass('current');
                 link.addClass('current');
                 link.closest('li.toctree-l1').addClass('current');
                 link.closest('li.toctree-l1').parent().addClass('current');
@@ -958,12 +958,36 @@ if (downloadNote.length >= 1) {
     $(".pytorch-call-to-action-links").hide();
 }
 
+
+//This code converts select on custom select
+
+$(document).ready(function() {
+  let select_arrow = $('.pytorch-left-menu-search .versions .current-version span');
+  $('.pytorch-left-menu-search .versions .current-version').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if(select_arrow.hasClass('opened')) {
+      $('ul.custom-select').slideUp('fast');
+      select_arrow.removeClass('opened');
+    } else {
+      $('ul.custom-select').slideDown('fast');
+      select_arrow.addClass('opened');
+    }
+  });
+
+  $(document).click(function (e) {
+    $('ul.custom-select').slideUp('fast');
+    select_arrow.removeClass('opened');
+  });
+});
+
 //This code handles the Expand/Hide toggle for the Docs/Tutorials left nav items
 
 $(document).ready(function() {
   var caption = "#pytorch-left-menu p.caption";
   var collapseAdded = $(this).not("checked");
-  $(caption).each(function () {
+  $(caption).not('.single-item').each(function () {
     var menuName = this.innerText.replace(/[^\w\s]/gi, "").trim();
     $(this).find("span").addClass("checked");
     if (collapsedSections.includes(menuName) == true && collapseAdded && sessionStorage.getItem(menuName) !== "expand" || sessionStorage.getItem(menuName) == "collapse") {
