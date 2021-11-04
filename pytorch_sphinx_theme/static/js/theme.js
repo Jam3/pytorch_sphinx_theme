@@ -958,6 +958,88 @@ if (downloadNote.length >= 1) {
     $(".pytorch-call-to-action-links").hide();
 }
 
+//This handles menu items
+
+$(document).ready(function() {
+  const menuIcon = document.querySelector(".menuIcon");
+  const navItems = document.querySelector(".mainNav .navItems");
+  menuIcon.addEventListener("click", () => {
+    menuIcon.classList.toggle("open");
+    navItems.classList.toggle("open");
+  });
+  
+  $.ajax({
+      url: window.menus_api_endpoint,
+      dataType: 'json',
+      success: function (data) {
+        if(data.header) {
+          let header_menu = $('.mainHeader .container .content-container ul.mainNav .navItems .navItemsContainer');
+
+          $.each(data.header, function(key, menu_data) {
+            let menu = document.createElement('li');
+            menu.className = 'mainItem';
+            $(menu).append(`<a class="parentTitle" href="${menu_data.link}" target="${menu_data.target}">${menu_data.title}</a>`);
+
+            if(menu_data.children && menu_data.children.length>0) {
+              let subitems_container = document.createElement('ul');
+              subitems_container.className = 'subItems';
+              
+              $.each(menu_data.children, function (index, menu_item_data) {
+                $(subitems_container).append(`<li class="subItem">
+                    <a class="link" href="${pytorch_site_url}${menu_item_data.link}" target="${menu_item_data.target}" class="${menu_data.classes}"s>
+                      <p class="title">${menu_item_data.title}</p>
+                      <p class="desc">
+                        ${menu_item_data.description}
+                      </p>
+                    </a>
+                </li>`);
+              });
+
+              let sub_menu = document.createElement('div');
+              sub_menu.className = 'subitems-container';
+              $(sub_menu).append(subitems_container);
+              $(menu).append(sub_menu);
+            }
+
+            header_menu.append(menu);
+          });
+        }
+
+        if(data.footer) {
+          $.each(data.footer, function(key, menu_data) {
+            let footer_menu = $('.Footer .footerNav');
+            let menu = document.createElement('li');
+            menu.className = 'mainItem';
+
+            $(menu).append(`<a href="${menu_data.link}" target="${menu_data.target}">${menu_data.title}</a>`);
+            
+            if(menu_data.children && menu_data.children.length>0) {
+              let subitems_container = document.createElement('ul');
+              
+              $.each(menu_data.children, function (index, menu_item_data) {
+                $(subitems_container).append(`<li class="subItem">
+                    <a href="${pytorch_site_url}${menu_item_data.link}" target="${menu_item_data.target}" class="${menu_item_data.classes}">
+                      ${menu_item_data.title}
+                    </a>
+                    <p></p>
+                </li>`);
+              });
+
+              $(menu).append(subitems_container);
+            }
+
+            footer_menu.append(menu);
+          });
+        }
+
+        if(data.legal) {
+          $.each(data.legal, function(key, menu_data) {
+            $('.Footer .legalNav').prepend(`<li><a href="${pytorch_site_url}${menu_data.link}" target="${menu_data.target}" class="${menu_data.classes}">${menu_data.title}</a></li>`);
+          });
+        }
+      }
+  });
+});
 
 //This code converts select on custom select
 
@@ -969,10 +1051,10 @@ $(document).ready(function() {
 
     if(select_arrow.hasClass('opened')) {
       $('ul.custom-select').slideUp('fast');
-      select_arrow.removeClass('opened');
+      select_arrow.removeClass('opened').parent().removeClass('opened');
     } else {
       $('ul.custom-select').slideDown('fast');
-      select_arrow.addClass('opened');
+      select_arrow.addClass('opened').parent().addClass('opened');
     }
   });
 
@@ -1112,6 +1194,10 @@ $(".stars-outer > i").on("click", function() {
         });
     });
 })
+
+if(!$('#pytorch-side-scroll-right ul li ul li').length) {
+  $('#pytorch-content-right').hide();
+}
 
 $("#pytorch-side-scroll-right li a").on("click", function (e) {
   var href = $(this).attr("href");
