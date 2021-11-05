@@ -10164,12 +10164,22 @@ article.pytorch-article {
 }
 
 article.pytorch-article > .section > *,
+article.pytorch-article > h1,
+.main-content article.pytorch-article > h2,
+article.pytorch-article > h3,
+article.pytorch-article > .genindex-jumpbox,
+article.pytorch-article > table.genindextable,
 .pytorch-content-left .rst-content footer {
   margin-left: 1.875rem;
   margin-right: 1.875rem;
 }
 @media screen and (min-width: 1600px) {
-  article.pytorch-article > .section > * {
+  article.pytorch-article > .section > *,
+  article.pytorch-article > h1,
+  .main-content article.pytorch-article > h2,
+  article.pytorch-article > h3,
+  article.pytorch-article > .genindex-jumpbox,
+  article.pytorch-article > table.genindextable {
     margin-left: 7rem;
     margin-right: 4.25rem;
   }
@@ -10564,7 +10574,7 @@ article.pytorch-article p.caption {
   margin-top: 1.25rem;
 }
 
-article.pytorch-article .section:first-of-type h1:first-of-type {
+article.pytorch-article h1 {
   margin-top: 0;
   margin-bottom: 2.5rem;
   color: #de3412;
@@ -10576,7 +10586,7 @@ article.pytorch-article .section:first-of-type h1:first-of-type {
   padding-left: 3rem;
 }
 @media screen and (min-width: 1600px) {
-  article.pytorch-article .section:first-of-type h1:first-of-type {
+  article.pytorch-article h1 {
     background-position: top 11px left 0;
     font-size: 3rem;
     line-height: 4rem;
@@ -11698,9 +11708,15 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 
 .pytorch-content-left .main-content ul.simple {
   padding-bottom: 1.25rem;
+  margin-left: 8rem;
 }
 .pytorch-content-left .main-content .note:nth-child(1), .pytorch-content-left .main-content .warning:nth-child(1) {
   margin-top: 0;
+}
+
+.pytorch-content-left .main-content ul.simple li a {
+  color: #de3412;
+  font-size: 2rem;
 }
 
 .pytorch-content-right {
@@ -12788,6 +12804,50 @@ article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type
   .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:nth-child(2) {
     width: 80%;
   }
+}
+
+article.pytorch-article .genindex-jumpbox:before,
+article.pytorch-article .genindex-jumpbox:after {
+  content: "|";
+}
+
+article.pytorch-article .genindex-jumpbox {
+  color: #bbbbbb;
+  font-size: 2.5rem;
+  width: 58%;
+}
+
+article.pytorch-article .genindex-jumpbox a {
+  padding: 0 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+article.pytorch-article .genindex-jumpbox a.active {
+  color: #de3412;
+}
+
+article.pytorch-article > h2 {
+  color: #de3412;
+  font-weight: 450;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.indextable.genindextable ul li:before {
+  content: "\2022";
+  color: #de3412;
+  position: absolute;
+  margin-left: -1em;
+}
+
+.indextable.genindextable ul li {
+  font-weight: 450;
+  font-size: 2rem;
+}
+
+.indextable.genindextable ul li a {
+  color: #de3412;
 }
 
 /*# sourceMappingURL=theme.css.map */

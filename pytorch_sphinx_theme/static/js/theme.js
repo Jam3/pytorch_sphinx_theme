@@ -1111,6 +1111,46 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
       $(menuCommand).toggle();
     }
   });
+
+  //This manipulates .indextable.genindextable table to have only one instead of more than one
+  //Also adds functionality to show and hide letters by index
+  
+  $(document).ready(function() {
+    if($('table.indextable.genindextable').length) {
+      let active_index = 'A';
+      if(document.location.hash) {
+        active_index = document.location.hash.replace('#', '');
+      }
+
+      $('.genindex-jumpbox a[href="#'+active_index+'"]').addClass('active');
+      $('h2#'+active_index).show().next().show('fast', function () {
+        $(this).siblings().not('.genindex-jumpbox').not('h2#'+active_index).hide();
+      });
+
+      $('table.indextable.genindextable tr').each(function () {
+        let first_td = false;
+        $(this).find('td').each(function () {
+          if(!first_td) {
+            first_td = this;
+          } else {
+            $(first_td).find('ul').append($(this).find('ul').html());
+            $(this).remove();
+          }
+        });
+      });
+
+      $('.genindex-jumpbox a').click(function (e) {
+        e.preventDefault();
+
+        $(this).addClass('active').siblings().removeClass('active');
+        
+        let id = this.hash.replace('#', '');
+        $('h2#'+id).show().next().show('fast', function () {
+          $(this).siblings().not('.genindex-jumpbox').not('h2#'+id).hide();
+        });
+      });
+    }
+  });
   
   // Build an array from each tag that's present
   
