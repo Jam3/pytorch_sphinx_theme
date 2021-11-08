@@ -1116,15 +1116,15 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   //Also adds functionality to show and hide letters by index
   
   $(document).ready(function() {
-    if($('table.indextable.genindextable').length) {
-      let active_index = 'A';
+    if($('table.indextable').length) {
+      let active_index = $('.genindex-jumpbox, .modindex-jumpbox').find('a').get(0).hash.replace('#', '');
       if(document.location.hash) {
         active_index = document.location.hash.replace('#', '');
       }
 
-      $('.genindex-jumpbox a[href="#'+active_index+'"]').addClass('active');
+      $('.genindex-jumpbox, .modindex-jumpbox').find('a[href="#'+active_index+'"]').addClass('active');
       $('h2#'+active_index).show().next().show('fast', function () {
-        $(this).siblings().not('.genindex-jumpbox').not('h2#'+active_index).hide();
+        $(this).siblings().not('.genindex-jumpbox, .modindex-jumpbox, h1').not('h2#'+active_index).hide();
       });
 
       $('table.indextable.genindextable tr').each(function () {
@@ -1139,14 +1139,27 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
         });
       });
 
-      $('.genindex-jumpbox a').click(function (e) {
+      $('table.indextable.modindextable tr').each(function () {
+        $(this).find('td:empty').remove();
+        $(this).find('td').each(function () {
+          if($.trim($(this).html()) == '<em></em>') {
+            $(this).remove();
+          } else {
+            if($(this).html().includes('&nbsp;')) {
+              $(this).html($(this).html().replace(/&nbsp;/g, ''));
+            }
+          }
+        });
+      });
+
+      $('.genindex-jumpbox, .modindex-jumpbox ').find('a').click(function (e) {
         e.preventDefault();
 
         $(this).addClass('active').siblings().removeClass('active');
         
         let id = this.hash.replace('#', '');
         $('h2#'+id).show().next().show('fast', function () {
-          $(this).siblings().not('.genindex-jumpbox').not('h2#'+id).hide();
+          $(this).siblings().not('.genindex-jumpbox, .modindex-jumpbox, h1').not('h2#'+id).hide();
         });
       });
     }

@@ -10168,7 +10168,8 @@ article.pytorch-article > h1,
 .main-content article.pytorch-article > h2,
 article.pytorch-article > h3,
 article.pytorch-article > .genindex-jumpbox,
-article.pytorch-article > table.genindextable,
+article.pytorch-article > .modindex-jumpbox,
+article.pytorch-article > table.indextable,
 .pytorch-content-left .rst-content footer {
   margin-left: 1.875rem;
   margin-right: 1.875rem;
@@ -10179,7 +10180,8 @@ article.pytorch-article > table.genindextable,
   .main-content article.pytorch-article > h2,
   article.pytorch-article > h3,
   article.pytorch-article > .genindex-jumpbox,
-  article.pytorch-article > table.genindextable {
+  article.pytorch-article > .modindex-jumpbox,
+  article.pytorch-article > table.indextable {
     margin-left: 7rem;
     margin-right: 4.25rem;
   }
@@ -10293,6 +10295,10 @@ article.pytorch-article img {
   width: 100%;
 }
 
+article.pytorch-article .indextable.modindextable td > img {
+  width: initial;
+}
+
 /*New versions page*/
 article.pytorch-article ul.simple {
   padding-left: 0.875rem;
@@ -10322,14 +10328,14 @@ article.pytorch-article .section p {
 }
 
 article.pytorch-article .section p:first-of-type {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 400;
-  line-height: 2.8rem;
+  line-height: 2.2rem;
 }
 @media screen and (min-width: 1600px) {
   article.pytorch-article .section p:first-of-type {
-    font-size: 2.4rem;
-    line-height: 3.2rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
   }
 }
 
@@ -10585,11 +10591,17 @@ article.pytorch-article h1 {
   background-repeat: no-repeat;
   padding-left: 3rem;
 }
+article.pytorch-article > h1 {
+  background-position: top 2px left 1px;
+}
 @media screen and (min-width: 1600px) {
   article.pytorch-article h1 {
     background-position: top 11px left 0;
     font-size: 3rem;
     line-height: 4rem;
+  }
+  article.pytorch-article > h1 {
+    background-position: top 10px left 0;
   }
 }
 
@@ -11708,7 +11720,13 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 
 .pytorch-content-left .main-content ul.simple {
   padding-bottom: 1.25rem;
-  margin-left: 8rem;
+  margin-left: 1rem;
+}
+.pytorch-content-left .main-content .pytorch-article > ul.simple {
+  margin-left: 3rem;
+}
+.pytorch-content-left .main-content .pytorch-article .section > ul.simple {
+  margin-left: 3rem;
 }
 .pytorch-content-left .main-content .note:nth-child(1), .pytorch-content-left .main-content .warning:nth-child(1) {
   margin-top: 0;
@@ -11716,7 +11734,15 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 
 .pytorch-content-left .main-content ul.simple li a {
   color: #de3412;
-  font-size: 2rem;
+  font-size: 1.4rem;
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-content-left .main-content .pytorch-article > ul.simple {
+    margin-left: 8rem;
+  }
+  .pytorch-content-left .main-content ul.simple li a {
+    font-size: 1.8rem;
+  }
 }
 
 .pytorch-content-right {
@@ -11930,6 +11956,11 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   font-weight: 550;
   margin: 0;
   padding: 10px 17px 10px 30px;
+}
+
+.pytorch-left-menu ul:last-of-type li.toctree-l1:last-of-type,
+.pytorch-left-menu p.caption:last-of-type:not(.active) {
+  border-bottom: none;
 }
 
 .pytorch-left-menu p.caption.single-item > a.reference.internal {
@@ -12807,23 +12838,34 @@ article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type
 }
 
 article.pytorch-article .genindex-jumpbox:before,
-article.pytorch-article .genindex-jumpbox:after {
+article.pytorch-article .genindex-jumpbox:after,
+article.pytorch-article .modindex-jumpbox:before,
+article.pytorch-article .modindex-jumpbox:after {
   content: "|";
 }
 
-article.pytorch-article .genindex-jumpbox {
+article.pytorch-article .genindex-jumpbox,
+article.pytorch-article .modindex-jumpbox {
   color: #bbbbbb;
   font-size: 2.5rem;
-  width: 58%;
+  width: 90%;
+}
+@media screen and (min-width: 1600px) {
+  article.pytorch-article .genindex-jumpbox,
+  article.pytorch-article .modindex-jumpbox {
+    width: 60%;
+  }
 }
 
-article.pytorch-article .genindex-jumpbox a {
+article.pytorch-article .genindex-jumpbox a,
+article.pytorch-article .modindex-jumpbox a {
   padding: 0 0.8rem;
   font-size: 1.5rem;
   font-weight: 300;
 }
 
-article.pytorch-article .genindex-jumpbox a.active {
+article.pytorch-article .genindex-jumpbox a.active,
+article.pytorch-article .modindex-jumpbox a.active {
   color: #de3412;
 }
 
@@ -12834,20 +12876,32 @@ article.pytorch-article > h2 {
   line-height: 2.4rem;
 }
 
-.indextable.genindextable ul li:before {
+table.indextable ul li:before,
+table.indextable tr td a:before {
   content: "\2022";
   color: #de3412;
   position: absolute;
   margin-left: -1em;
 }
 
-.indextable.genindextable ul li {
+table.indextable ul li {
   font-weight: 450;
-  font-size: 2rem;
+  font-size: 1.4rem;
+}
+@media screen and (min-width: 1600px) {
+  table.indextable ul li {
+    font-size: 1.8rem;
+  }
 }
 
-.indextable.genindextable ul li a {
+table.indextable ul li a,
+table.indextable tr td a {
   color: #de3412;
+  font-size: 1.8rem;
+}
+
+table.indextable tr td a {
+  margin-left: 2rem;
 }
 
 /*# sourceMappingURL=theme.css.map */
