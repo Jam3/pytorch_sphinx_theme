@@ -1034,7 +1034,7 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   
           if(data.legal) {
             $.each(data.legal, function(key, menu_data) {
-              $('.Footer .legalNav').prepend(`<li><a href="${pytorch_site_url}${menu_data.link}" target="${menu_data.target}" class="${menu_data.classes}">${menu_data.title}</a></li>`);
+              $('.Footer .legalNav .legalNavList').prepend(`<li><a href="${pytorch_site_url}${menu_data.link}" target="${menu_data.target}" class="${menu_data.classes}">${menu_data.title}</a></li>`);
             });
           }
         }
