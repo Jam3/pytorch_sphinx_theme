@@ -11660,6 +11660,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 .pytorch-container {
   *zoom: 1;
+  border-left: solid 1px #e6e6e6;
 }
 
 .pytorch-content-wrap {
@@ -11815,7 +11816,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 @media screen and (min-width: 1600px) {
   .pytorch-left-menu {
-    border: solid 1px #e6e6e6;
+    border-bottom: solid 1px #e6e6e6;
     padding: 0;
     width: 350px;
     background-color: #ffffff;
@@ -12308,6 +12309,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 @media screen and (min-width: 1101px) {
   .pytorch-right-menu .pytorch-side-scroll {
     width: 120%;
+    padding-top: 2.4rem;
   }
 }
 @media screen and (min-width: 1600px) {
@@ -12398,9 +12400,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   padding: 0 1.875rem;
   font-weight: 400;
 }
-.pytorch-page-level-bar .pytorch-breadcrumbs-aside {
-  display: none;
-}
 @media screen and (min-width: 1101px) {
   .pytorch-page-level-bar {
     left: 0;
@@ -12412,6 +12411,10 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     width: 100%;
     position: absolute;
     z-index: 1;
+  }
+
+  .pytorch-breadcrumbs-wrapper {
+    width: 65%;
   }
 }
 @media screen and (min-width: 1600px) {
@@ -12883,8 +12886,7 @@ article.pytorch-article > h2 {
   line-height: 2.4rem;
 }
 
-table.indextable ul li:before,
-table.indextable tr td a:before {
+table.indextable ul li:before {
   content: "\2022";
   color: #de3412;
   position: absolute;
@@ -12908,7 +12910,7 @@ table.indextable tr td a {
 }
 
 table.indextable tr td a {
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 /* Cards on detail page */
