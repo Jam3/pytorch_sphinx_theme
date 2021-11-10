@@ -11729,6 +11729,12 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-content-left .main-content .pytorch-article .section > ul.simple {
   margin-left: 3rem;
 }
+@media screen and (min-width: 1600px) {
+  .pytorch-content-left .main-content .pytorch-article .section > ul.simple {
+    margin-left: 8rem;
+  }
+}
+
 .pytorch-content-left .main-content .note:nth-child(1), .pytorch-content-left .main-content .warning:nth-child(1) {
   margin-top: 0;
 }
@@ -12903,6 +12909,98 @@ table.indextable tr td a {
 
 table.indextable tr td a {
   margin-left: 2rem;
+}
+
+/* Cards on detail page */
+
+.section .cards {
+  margin-top: 5rem;
+}
+
+article.pytorch-article .section .cards > .title p {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+article.pytorch-article .section .cards > .description p {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+@media screen and (min-width: 800px) {
+  article.pytorch-article .section .cards > .cards-container {
+    display: flex;
+  }
+}
+
+article.pytorch-article .section .cards > .cards-container .card {
+  max-width: 335px;
+  margin: 0;
+  box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  article.pytorch-article .section .cards > .cards-container .card:last-of-type {
+    margin-left: 5%;
+  }
+
+  article.pytorch-article .section .cards > .cards-container .card {
+    margin-bottom: 2rem;
+  }
+}
+
+article.pytorch-article .section .cards > .cards-container .card .image {
+  max-width: 33.5rem;
+  padding-bottom: 0.4rem;
+  background: linear-gradient(90deg, #ee4c2c 0%, #cc2faa 100%);
+}
+
+article.pytorch-article .section .cards > .cards-container .card > .featured {
+  position: relative;
+}
+
+article.pytorch-article .section .cards > .cards-container .card > .featured p {
+  position: absolute;
+  background-color: #de3412;
+  color: #ffffff;
+  margin-top: -3.4rem;
+  padding: 0.4rem 2rem;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+}
+
+article.pytorch-article .section .cards > .cards-container .card .title p {
+  margin: 1.8rem 2rem 0 2.384rem;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  letter-spacing: 0.1rem;
+  font-weight: 450;
+  color: #de3412;
+  text-transform: uppercase;
+}
+
+article.pytorch-article .section .cards > .cards-container .card .subtitle p {
+  margin: 1rem 2rem 0 2.384rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 450;
+}
+
+article.pytorch-article .section .cards > .cards-container .card .description p {
+  margin: 1rem 2rem 4rem 2.384rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: #666666;
+}
+
+article.pytorch-article .section .cards > .cards-container .card .tags {
+  margin: auto 2rem 2rem 2.384rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 450;
+  color: #de3412;
 }
 
 /*# sourceMappingURL=theme.css.map */

@@ -505,7 +505,7 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   
       if (rightMenuHasLinks) {
         // Don't show the Shortcuts menu title text unless there are menu items
-        document.getElementById("pytorch-shortcuts-wrapper").style.display = "block";
+        //document.getElementById("pytorch-shortcuts-wrapper").style.display = "block";
   
         // We are hiding the titles of the pages in the right side menu but there are a few
         // pages that include other pages in the right side menu (see 'torch.nn' in the docs)
