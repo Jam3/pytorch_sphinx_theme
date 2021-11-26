@@ -344,18 +344,18 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   },{}],7:[function(require,module,exports){
   window.mobileTOC = {
     bind: function() {
-      $("[data-behavior='toggle-table-of-contents']").on("click", function(e) {
+      $('a.toggle-table-of-contents').click(function (e) {
         e.preventDefault();
-  
-        var $parent = $(this).parent();
-  
-        if ($parent.hasClass("is-open")) {
-          $parent.removeClass("is-open");
+      });
+
+      $(".table-of-contents-link-wrapper").click(function(e) {
+        if ($(this).hasClass("is-open")) {
+          $(this).removeClass("is-open");
           $(".pytorch-left-menu").slideUp(200, function() {
             $(this).css({display: ""});
           });
         } else {
-          $parent.addClass("is-open");
+          $(this).addClass("is-open");
           $(".pytorch-left-menu").slideDown(200);
         }
       });
@@ -597,10 +597,10 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
     },
   
     handleNavBar: function() {
-      var mainHeaderHeight = document.getElementById('header-holder').offsetHeight;
+      var mainHeaderHeight = document.getElementById('header-holder')?.offsetHeight;
   
       // If we are scrolled past the main navigation header fix the sub menu bar to top of page
-      if (utilities.scrollTop() >= mainHeaderHeight) {
+      if (mainHeaderHeight && utilities.scrollTop() >= mainHeaderHeight) {
         document.getElementById("pytorch-left-menu").classList.add("make-fixed");
         document.getElementById("pytorch-page-level-bar").classList.add("left-menu-is-fixed");
       } else {
@@ -634,9 +634,9 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   
     handleLeftMenu: function () {
       var windowHeight = utilities.windowHeight();
-      var topOfFooterRelativeToWindow = document.getElementById("docs-tutorials-resources").getBoundingClientRect().top;
+      var topOfFooterRelativeToWindow = document.getElementById("docs-tutorials-resources")?.getBoundingClientRect().top;
   
-      if (topOfFooterRelativeToWindow >= windowHeight) {
+      if (topOfFooterRelativeToWindow && topOfFooterRelativeToWindow >= windowHeight) {
         document.getElementById("pytorch-left-menu").style.height = "100%";
       } else {
         var howManyPixelsOfTheFooterAreInTheWindow = windowHeight - topOfFooterRelativeToWindow;
@@ -652,9 +652,9 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
       var article = document.getElementById("pytorch-article");
       var articleHeight = article.offsetHeight;
       var articleBottom = utilities.offset(article).top + articleHeight;
-      var mainHeaderHeight = document.getElementById('header-holder').offsetHeight;
+      var mainHeaderHeight = document.getElementById('header-holder')?.offsetHeight;
   
-      if (utilities.scrollTop() < mainHeaderHeight) {
+      if (mainHeaderHeight && utilities.scrollTop() < mainHeaderHeight) {
         rightMenuWrapper.style.height = "100%";
         rightMenu.style.top = 0;
         rightMenu.classList.remove("scrolling-fixed");
@@ -978,7 +978,7 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
             $.each(data.header, function(key, menu_data) {
               let menu = document.createElement('li');
               menu.className = 'mainItem';
-              $(menu).append(`<a class="parentTitle" href="${menu_data.link}" target="${menu_data.target}">${menu_data.title}</a>`);
+              $(menu).append(`<a class="parentTitle ${menu_data.classes}" href="${menu_data.link}" target="${menu_data.target}">${menu_data.title}</a>`);
   
               if(menu_data.children && menu_data.children.length>0) {
                 let subitems_container = document.createElement('ul');
@@ -1067,48 +1067,44 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   //This code handles the Expand/Hide toggle for the Docs/Tutorials left nav items
   
   $(document).ready(function() {
-    var caption = "#pytorch-left-menu p.caption";
-    var collapseAdded = $(this).not("checked");
+    let caption = "#pytorch-left-menu p.caption";
     $(caption).not('.single-item').each(function () {
-      var menuName = this.innerText.replace(/[^\w\s]/gi, "").trim();
-      $(this).find("span").addClass("checked");
-      if (collapsedSections.includes(menuName) == true && collapseAdded && sessionStorage.getItem(menuName) !== "expand" || sessionStorage.getItem(menuName) == "collapse") {
-        $(this.firstChild).after("<span class='expand-menu'></span>");
-        $(this.firstChild).after("<span class='hide-menu collapse'></span>");
-        $(this).next("ul").hide();
-      } else if (collapsedSections.includes(menuName) == false && collapseAdded || sessionStorage.getItem(menuName) == "expand") {
-        $(this).addClass('active');
-        $(this.firstChild).after("<span class='expand-menu collapse'></span>");
-        $(this.firstChild).after("<span class='hide-menu'></span>");
+      $(this).append("<span class='expand-menu'></span>");
+      $(this).append("<span class='hide-menu collapse'></span>");
+
+      if($(this).next('ul').hasClass('current')) {
+        show_menu(this);
+      } else {
+        hide_menu(this);
+      }
+
+      $(this).click(function (e) {
+        if($(this).find('.expand-menu').is(":visible")) {
+          show_menu(this);
+        } else {
+          hide_menu(this);
+        }
+      });
+    });
+
+    $('#pytorch-left-menu ul .toctree-l1 a').click(function (e) {
+      if($(this).hasClass('current')) {
+        e.preventDefault();
       }
     });
-  
-    $(".expand-menu").on("click", function () {
-      $(this).prev(".hide-menu").toggle();
-      $(this).parent().addClass('active');
-      $(this).parent().next("ul").toggle();
-      var menuName = $(this).parent().text().replace(/[^\w\s]/gi, "").trim();
-      if (sessionStorage.getItem(menuName) == "collapse") {
-        sessionStorage.removeItem(menuName);
-      }
-      sessionStorage.setItem(menuName, "expand");
-      toggleList(this);
-    });
-  
-    $(".hide-menu").on("click", function () {
-      $(this).next(".expand-menu").toggle();
-      $(this).parent().removeClass('active');
-      $(this).parent().next("ul").toggle();
-      var menuName = $(this).parent().text().replace(/[^\w\s]/gi, "").trim();
-      if (sessionStorage.getItem(menuName) == "expand") {
-        sessionStorage.removeItem(menuName);
-      }
-      sessionStorage.setItem(menuName, "collapse");
-      toggleList(this);
-    });
-  
-    function toggleList(menuCommand) {
-      $(menuCommand).toggle();
+    
+    function hide_menu(menu) {
+      $(menu).find(".expand-menu").show();
+      $(menu).find(".hide-menu").hide();
+      $(menu).removeClass('active');
+      $(menu).next("ul").hide();
+    }
+
+    function show_menu(menu) {
+      $(menu).find(".hide-menu").show();
+      $(menu).find(".expand-menu").hide();
+      $(menu).addClass('active');
+      $(menu).next("ul").show();
     }
   });
 
