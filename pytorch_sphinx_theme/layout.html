@@ -103,7 +103,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
 
-<body class="pytorch-body">
+<body class="pytorch-body {% if theme_pytorch_project == 'tutorials' %}tutorialsContainer{% endif %}">
   {% block extrabody %} {% endblock %}
   {% include "header.html" %}
   
