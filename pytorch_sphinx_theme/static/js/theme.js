@@ -1003,6 +1003,12 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   
               header_menu.append(menu);
             });
+
+            if(window.theme_pytorch_project == 'tutorials') {
+              $('.navItemsContainer .mainItem a.parentTitle.tutorials').addClass('active');
+            } else {
+              $('.navItemsContainer .mainItem a.parentTitle.docs').addClass('active');
+            }
           }
   
           if(data.footer) {

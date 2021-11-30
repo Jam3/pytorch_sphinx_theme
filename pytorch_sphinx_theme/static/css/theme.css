@@ -551,7 +551,7 @@ pre code {
 }
 
 .container {
-  width: 100%;
+  width: 95%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -10316,6 +10316,10 @@ article.pytorch-article ul.simple li::before {
   margin-top: -0.5rem;
 }
 
+.tutorialsContainer article.pytorch-article ul.simple li::before {
+  color: #262626;
+}
+
 article.pytorch-article .section p {
   font-size: 1.4rem;
   font-weight: 400;
@@ -11237,6 +11241,7 @@ article.pytorch-article .math img {
   padding-left: 0;
   padding-right: 0;
   max-width: none;
+  margin-left: 0;
 }
 
 a:link,
@@ -11293,40 +11298,40 @@ a:hover {
   color: #de3412;
 }
 
-  .pytorch-call-to-action-links {
+.pytorch-call-to-action-links {
   padding-top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 920px;
+  margin: 0 auto;
+  padding-left: 2rem;
 }
 @media screen and (min-width: 768px) {
   .pytorch-call-to-action-links {
     padding-top: 2.5rem;
   }
 }
-@media (min-width: 768px) and (max-width: 1239px) {
-  .pytorch-call-to-action-links {
-    padding-top: 0;
-  }
-}
-@media (min-width: 1100px) and (max-width: 1239px) {
+@media (min-width: 1101px) {
   .pytorch-call-to-action-links {
     padding-top: 2.5rem;
+    padding-left: 7rem;
+    max-width: 68%;
+    margin-left: 0;
   }
 }
 .pytorch-call-to-action-links #tutorial-type {
   display: none;
 }
 .pytorch-call-to-action-links .call-to-action-img, .pytorch-call-to-action-links .call-to-action-notebook-img {
-  height: 1.375rem;
-  width: 1.375rem;
+  width: 2rem;
   margin-right: 10px;
 }
 .pytorch-call-to-action-links .call-to-action-notebook-img {
-  height: 1rem;
+  height: 2rem;
 }
 .pytorch-call-to-action-links a {
-  padding-right: 1.25rem;
+  margin-right: 2rem;
   color: #000000;
   cursor: pointer;
 }
@@ -11351,20 +11356,38 @@ a:hover {
 }
 .pytorch-call-to-action-links a #google-colab-link, .pytorch-call-to-action-links a #download-notebook-link,
 .pytorch-call-to-action-links a #github-view-link {
-  padding-bottom: 0.625rem;
   border-bottom: 1px solid #f3f4f7;
-  padding-right: 2.5rem;
+  padding: 0.8rem 2rem;
+  background-color: #de3412;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
-.pytorch-call-to-action-links a #google-colab-link:hover, .pytorch-call-to-action-links a #download-notebook-link:hover,
-.pytorch-call-to-action-links a #github-view-link:hover {
-  border-bottom-color: #e44c2c;
-  color: #e44c2c;
+
+#tutorial-cards-container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1101px) {
+  #tutorial-cards-container {
+    padding-left: 7rem;
+    padding-right: 4rem;
+    max-width: 70%;
+    margin: 0;
+  }
+  .section #tutorial-cards-container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    margin-left: 7rem;
+  }
 }
 
 #tutorial-cards-container #tutorial-cards {
@@ -11382,24 +11405,11 @@ a:hover {
 #tutorial-cards-container .card.tutorials-card {
   border-radius: 0;
   border-color: #f3f4f7;
-  height: 98px;
   margin-bottom: 1.25rem;
   margin-bottom: 1.875rem;
-  overflow: scroll;
+  overflow: hidden;
   background-color: #f3f4f7;
   cursor: pointer;
-}
-@media screen and (min-width: 1240px) {
-  #tutorial-cards-container .card.tutorials-card {
-    height: 200px;
-    overflow: inherit;
-  }
-}
-@media (min-width: 768px) and (max-width: 1239px) {
-  #tutorial-cards-container .card.tutorials-card {
-    height: 200px;
-    overflow: scroll;
-  }
 }
 #tutorial-cards-container .card.tutorials-card .tutorials-image {
   position: absolute;
@@ -11410,7 +11420,6 @@ a:hover {
   opacity: 0.5;
 }
 #tutorial-cards-container .card.tutorials-card .tutorials-image img {
-  height: 100%;
   width: 100%;
 }
 @media screen and (min-width: 768px) {
@@ -11455,10 +11464,10 @@ a:hover {
 #tutorial-cards-container .card.tutorials-card .card-title-container h4 {
   margin-bottom: 1.125rem;
   margin-top: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 #tutorial-cards-container .card.tutorials-card p.card-summary, #tutorial-cards-container .card.tutorials-card p.tags {
-  font-size: 0.9375rem;
+  font-size: 1.5rem;
   line-height: 1.5rem;
   margin-bottom: 0;
   color: #6c6c6d;
@@ -11526,9 +11535,6 @@ a:hover {
 #tutorial-cards-container .card.tutorials-card:hover .tutorials-image {
   opacity: unset;
 }
-#tutorial-cards-container .tutorial-tags-container {
-  width: 75%;
-}
 #tutorial-cards-container .tutorial-tags-container.active {
   width: 0;
 }
@@ -11550,16 +11556,19 @@ a:hover {
   cursor: pointer;
 }
 #tutorial-cards-container .filter-btn {
-  color: #979797;
-  border: 1px solid #979797;
+  color: #666666;
+  border: 1px solid #666666;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 5px;
+  padding: 0.6rem 1.6rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  margin-bottom: 0.8rem;
+  border-radius: 16px;
+  font-weight: 500;
+  margin-right: 0.8rem;
 }
 #tutorial-cards-container .filter-btn:hover {
   border: 1px solid #e44c2c;
@@ -11571,11 +11580,12 @@ a:hover {
   color: #ffffff;
 }
 #tutorial-cards-container .all-tag-selected {
-  background-color: #979797;
+  background-color: #de3412;
+  border: solid 1px #de3412;
   color: #ffffff;
 }
 #tutorial-cards-container .all-tag-selected:hover {
-  border-color: #979797;
+  border-color: #de3412;
   color: #ffffff;
 }
 #tutorial-cards-container .pagination .page {
@@ -11602,15 +11612,22 @@ article.pytorch-article .tutorials-callout-container .text-container .body-parag
   font-size: 1.125rem;
   line-height: 1.875rem;
 }
+
+.tutorialsContainer article.pytorch-article .tutorials-callout-container .text-container .body-paragraph {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
 article.pytorch-article .tutorials-callout-container .btn.callout-button {
-  font-size: 1.125rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
   border-radius: 0;
   border: none;
-  background-color: #f3f4f7;
-  color: #6c6c6d;
-  font-weight: 400;
+  color: #de3412;
+  font-weight: 500;
   position: relative;
   letter-spacing: 0.25px;
+  padding-left: 0;
 }
 @media screen and (min-width: 768px) {
   article.pytorch-article .tutorials-callout-container .btn.callout-button:after {
@@ -11722,6 +11739,14 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   .pytorch-content-left .main-content .pytorch-article .section > ul.simple {
     margin-left: 8rem;
   }
+
+  .tutorialsContainer .pytorch-content-left .main-content .pytorch-article .section > ul.simple {
+    margin-left: 3rem;
+  }
+}
+
+.tutorialsContainer .pytorch-content-left .main-content .pytorch-article .section > ul.simple {
+  margin-left: 3rem;
 }
 
 .pytorch-content-left .main-content .note:nth-child(1), .pytorch-content-left .main-content .warning:nth-child(1) {
@@ -11899,11 +11924,14 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   background-size: 15px;
   height: 20px;
   width: 30px;
-  float: right;
   transform: rotate(270deg);
+  position: absolute;
+  top: 1.2rem;
+  right: 0;
 }
 .hide-menu {  
-  float: left;
+  position: absolute;
+  left: 0;
   transform: rotate(90deg);
 }
 @media screen and (min-width: 1101px) {
@@ -11947,6 +11975,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   font-weight: 550;
   margin: 0;
   padding: 10px 17px 10px 30px;
+  position: relative;
 }
 
 .pytorch-left-menu ul:last-of-type li.toctree-l1:last-of-type,
@@ -11962,9 +11991,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-left-menu ul li.toctree-l1 {
   font-weight: 400;
 }
-.pytorch-left-menu p.caption.active {
-  padding-left: 0;
-}
 @media screen and (min-width: 1101px) {
   .pytorch-left-menu ul li.toctree-l1,
   .pytorch-left-menu p.caption {
@@ -11974,6 +12000,9 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   .pytorch-left-menu p.caption.active {
     padding-left: 96px;
   }
+}
+.pytorch-left-menu .pytorch-menu p.caption .caption-text {
+  display: block;
 }
 
 .pytorch-left-menu p.caption {
@@ -12906,24 +12935,60 @@ article.pytorch-article .section .cards > .description p {
   line-height: 2.4rem;
 }
 
+article.pytorch-article .section .cards > .cards-container.two-columns .title-container {
+  margin-right: 2rem;
+}
+
+article.pytorch-article .section .cards > .cards-container.two-columns .title-container:last-of-type {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 @media screen and (min-width: 800px) {
   article.pytorch-article .section .cards > .cards-container {
     display: flex;
   }
 }
 
+article.pytorch-article .section .cards .cards-container .card-container:first-of-type {
+  margin-right: 4rem;
+}
+
+article.pytorch-article .section .cards .cards-container .title-container .main-title p {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+article.pytorch-article .section .cards .cards-container .title-container .main-description p {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  padding-right: 7rem;
+}
+
 article.pytorch-article .section .cards > .cards-container .card {
-  max-width: 335px;
+  max-width: 90%;
   margin: 0;
   box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
 }
+@media screen and (min-width: 1101px) {
+  article.pytorch-article .section .cards > .cards-container .card {
+    max-width: 440px;
+  }
+}
+
+article.pytorch-article .section .cards > .cards-container.three-columns .card {
+  max-width: 280px;
+}
+
+article.pytorch-article .section .cards > .cards-container .card {
+  margin-right: 2rem;
+}
+article.pytorch-article .section .cards > .cards-container .card:last-of-type {
+  margin-right: 0;
+}
 
 @media screen and (min-width: 800px) {
-  article.pytorch-article .section .cards > .cards-container .card:last-of-type {
-    margin-left: 5%;
-  }
-
   article.pytorch-article .section .cards > .cards-container .card {
     margin-bottom: 2rem;
   }
@@ -12933,6 +12998,11 @@ article.pytorch-article .section .cards > .cards-container .card .image {
   max-width: 33.5rem;
   padding-bottom: 0.4rem;
   background: linear-gradient(90deg, #ee4c2c 0%, #cc2faa 100%);
+}
+
+article.pytorch-article .section .cards > .cards-container.two-columns .card .image {
+  max-width: 44rem;
+  width: 100%;
 }
 
 article.pytorch-article .section .cards > .cards-container .card > .featured {
@@ -12974,12 +13044,51 @@ article.pytorch-article .section .cards > .cards-container .card .description p 
   color: #666666;
 }
 
-article.pytorch-article .section .cards > .cards-container .card .tags {
+article.pytorch-article .section .cards > .cards-container .card .tags,
+article.pytorch-article .section .cards > .cards-container .card .link {
   margin: auto 2rem 2rem 2.384rem;
   font-size: 1.6rem;
   line-height: 2.4rem;
   font-weight: 450;
   color: #de3412;
+}
+
+article.pytorch-article .section .cards > .cards-container .card .link a {
+  background-image: url("../images/chevron-right-orange.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem 1.3rem;
+  background-position: center right;
+  padding-right: 1.5rem;
+}
+
+.sphx-glr-example-title {
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+@media screen and (min-width: 1101px) {
+  .sphx-glr-example-title {
+    margin-left: 7rem;
+    max-width: 60%;
+  }
+}
+
+.tutorialsContainer .rst-content #tutorial-cards-container {
+  margin: 0 auto;
+  max-width: 920px;
+  padding: 2rem;
+}
+
+@media screen and (min-width: 1101px) {
+  .tutorialsContainer .rst-content #tutorial-cards-container {
+    margin: 0;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    max-width: auto;
+  }
+}
+
+.tutorialsContainer .rst-content #tutorial-cards-container .tutorials-image img {
+  width: auto;
 }
 
 /*# sourceMappingURL=theme.css.map */
