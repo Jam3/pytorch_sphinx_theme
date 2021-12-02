@@ -2102,26 +2102,15 @@ pre code {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
           box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-.form-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-.form-control::-moz-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-.form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-.form-control::-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
+.form-control::-webkit-input-placeholder,
+.form-control::-moz-placeholder,
+.form-control:-ms-input-placeholder,
+.form-control::-ms-input-placeholder,
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
 }
+
 .form-control:disabled, .form-control[readonly] {
   background-color: #e9ecef;
   opacity: 1;
@@ -9566,18 +9555,9 @@ a.with-right-arrow, .btn.with-right-arrow {
   }
 }
 
-::-webkit-input-placeholder {
-  color: #e44c2c;
-}
-
-::-moz-placeholder {
-  color: #e44c2c;
-}
-
-:-ms-input-placeholder {
-  color: #e44c2c;
-}
-
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
 :-moz-placeholder {
   color: #e44c2c;
 }
@@ -10340,11 +10320,29 @@ p a:hover {
 }
 p a:link,
 p a:visited,
-p a:hover {
-  color: #de3412;
-}
-
-.wy-breadcrumbs li a {
+p a:hover,
+.wy-breadcrumbs li a,
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+.site-footer a:hover,
+.header-holder .main-menu ul li.active:after,
+.header-holder .main-menu ul li.active a,
+.header-holder .main-menu ul li a:hover,
+.mobile-main-menu.open ul li.active a,
+.rst-content footer .rating-container .stars-outer .star-fill,
+article.pytorch-article .function dt:hover .viewcode-link,
+article.pytorch-article .attribute dt:hover .viewcode-link,
+article.pytorch-article .class dt:hover .viewcode-link,
+.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:link,
+.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:visited,
+.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:hover,
+.pytorch-left-menu .versions .current-version.opened,
+.pytorch-left-menu .versions .custom-select a:hover,
+.sphinx-tabs .sphinx-tabs-panel .toctree-wrapper ul li.toctree-l1 a,
+article.pytorch-article .genindex-jumpbox a.active,
+article.pytorch-article .modindex-jumpbox a.active {
   color: #de3412;
 }
 
@@ -10393,8 +10391,8 @@ ul.pytorch-breadcrumbs a {
   background-size: 15px;
   height: 100%;
   position: absolute;
-  right: 18px;
-  width: 30px;
+  right: 1.3rem;
+  width: 3rem;
   top: 0;
 }
 
@@ -10442,9 +10440,6 @@ ul.pytorch-breadcrumbs a {
 }
 .rst-content footer .rating-container .stars-outer i {
   cursor: pointer;
-}
-.rst-content footer .rating-container .stars-outer .star-fill {
-  color: #de3412;
 }
 .rst-content footer div[role="contentinfo"] {
   padding-top: 2.5rem;
@@ -10674,9 +10669,6 @@ article.pytorch-article .function dt a, article.pytorch-article .attribute dt a,
   top: 50%;
   -webkit-transform: perspective(1px) translateY(-50%);
           transform: perspective(1px) translateY(-50%);
-}
-article.pytorch-article .function dt:hover .viewcode-link, article.pytorch-article .attribute dt:hover .viewcode-link, article.pytorch-article .class dt:hover .viewcode-link {
-  color: #de3412;
 }
 article.pytorch-article .function .anchorjs-link, article.pytorch-article .attribute .anchorjs-link, article.pytorch-article .class .anchorjs-link {
   display: inline;
@@ -11195,28 +11187,6 @@ a:hover {
   color: initial;
 }
 
-::-webkit-input-placeholder {
-  color: #de3412;
-}
-
-::-moz-placeholder {
-  color: #de3412;
-}
-
-:-ms-input-placeholder {
-  color: #de3412;
-}
-
-:-moz-placeholder {
-  color: #de3412;
-}
-
-@media screen and (min-width: 768px) {
-  .site-footer a:hover {
-    color: #de3412;
-  }
-}
-
 .docs-tutorials-resources a {
   color: #ee4c2c;
   font-size: 1.5rem;
@@ -11225,22 +11195,6 @@ a:hover {
 .header-holder {
   position: relative;
   z-index: 201;
-}
-
-.header-holder .main-menu ul li.active:after {
-  color: #de3412;
-}
-.header-holder .main-menu ul li.active a {
-  color: #de3412;
-}
-@media screen and (min-width: 1100px) {
-  .header-holder .main-menu ul li a:hover {
-    color: #de3412;
-  }
-}
-
-.mobile-main-menu.open ul li.active a {
-  color: #de3412;
 }
 
 .pytorch-call-to-action-links {
@@ -11724,10 +11678,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   display: block;
 }
 
-.pytorch-left-menu .versions .current-version.opened {
-  color: #de3412;
-}
-
 .pytorch-left-menu .versions .current-version span {
   font-size: 9px;
   margin-left: 3px;
@@ -11760,14 +11710,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   font-size: 16px;
   font-style: normal;
   line-height: 24px;
-}
-
-.pytorch-left-menu .versions .custom-select a:hover {
-  color: #de3412;
-}
-
-@media screen and (min-width: 1101px) {
-  
 }
 
 .pytorch-left-menu .unstable {
@@ -11911,34 +11853,18 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   }
 }
 
-.pytorch-left-menu-search ::-webkit-input-placeholder {
-  color: #262626;
-}
-.pytorch-left-menu-search ::-moz-placeholder {
-  color: #262626;
-}
-.pytorch-left-menu-search :-ms-input-placeholder {
-  color: #262626;
-}
-.pytorch-left-menu-search ::-ms-input-placeholder {
-  color: #262626;
-}
+.pytorch-left-menu-search ::-webkit-input-placeholder,
+.pytorch-left-menu-search ::-moz-placeholder,
+.pytorch-left-menu-search :-ms-input-placeholder,
+.pytorch-left-menu-search ::-ms-input-placeholder,
 .pytorch-left-menu-search ::placeholder {
   color: #262626;
 }
 
-.pytorch-left-menu-search :focus::-webkit-input-placeholder {
-  color: transparent;
-}
-.pytorch-left-menu-search :focus::-moz-placeholder {
-  color: transparent;
-}
-.pytorch-left-menu-search :focus:-ms-input-placeholder {
-  color: transparent;
-}
-.pytorch-left-menu-search :focus::-ms-input-placeholder {
-  color: transparent;
-}
+.pytorch-left-menu-search :focus::-webkit-input-placeholder,
+.pytorch-left-menu-search :focus::-moz-placeholder,
+.pytorch-left-menu-search :focus:-ms-input-placeholder,
+.pytorch-left-menu-search :focus::-ms-input-placeholder,
 .pytorch-left-menu-search :focus::placeholder {
   color: transparent;
 }
@@ -12464,10 +12390,6 @@ article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type
   margin-top: 2rem;
 }
 
-.sphinx-tabs .sphinx-tabs-panel .toctree-wrapper ul li.toctree-l1 a {
-  color: #de3412;
-}
-
 .sphinx-tabs .sphinx-tabs-panel .toctree-wrapper .caption {
   display: none;
 }
@@ -12603,11 +12525,6 @@ article.pytorch-article .modindex-jumpbox a {
   padding: 0 0.8rem;
   font-size: 1.5rem;
   font-weight: 300;
-}
-
-article.pytorch-article .genindex-jumpbox a.active,
-article.pytorch-article .modindex-jumpbox a.active {
-  color: #de3412;
 }
 
 article.pytorch-article > h2 {
@@ -12856,12 +12773,6 @@ article.pytorch-article .section .cards > .cards-container .card .link a {
   color: #262626;
 }
 
-.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:link,
-.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:visited,
-.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:hover {
-  color: #de3412;
-}
-
 .pytorch-right-menu .pytorch-side-scroll a.reference.internal.expanded:before,
 .pytorch-right-menu .pytorch-side-scroll a.reference.internal.not-expanded:before {
   content: "-";
@@ -12884,6 +12795,10 @@ article.pytorch-article .section .cards > .cards-container .card .link a {
 
 .pytorch-right-menu .pytorch-side-scroll ul ul ul li {
   margin-left: 1rem;
+}
+
+.pytorch-right-menu .pytorch-side-scroll ul ul ul {
+  display: none;
 }
 
 .pytorch-right-menu .pytorch-side-scroll ul ul ul li:first-of-type {

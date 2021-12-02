@@ -961,11 +961,28 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
   //This handles menu items
   
   $(document).ready(function() {
-    const menuIcon = document.querySelector(".menuIcon");
-    const navItems = document.querySelector(".mainNav .navItems");
-    menuIcon.addEventListener("click", () => {
-      menuIcon.classList.toggle("open");
-      navItems.classList.toggle("open");
+    $('.mainItem .hamburger').click(function (e) {
+      $('.mainItem.search').hide();
+      $(this).hide();
+      $(this).siblings('.close').show();
+      $('li.navItems').toggle("open");
+    });
+
+    $('.mainItem.menuIcon .close').click(function (e) {
+      $(this).hide();
+      $(this).siblings('.hamburger').show();
+      $('.mainItem.search').show();
+      $('li.navItems').toggle("open");
+    });
+
+    $('#search-icon').click(function (e) {
+      e.preventDefault();
+
+      $('header.mainHeader').addClass('active-search');
+    });
+
+    $('#close-search').click(function (e) {
+      $('header.mainHeader').removeClass('active-search');
     });
     
     $.ajax({
@@ -974,40 +991,40 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
         success: function (data) {
           if(data.header) {
             let header_menu = $('.mainHeader .container .content-container ul.mainNav .navItems .navItemsContainer');
-  
+            let main_header_nav = [];
+            
             $.each(data.header, function(key, menu_data) {
               let menu = document.createElement('li');
-              menu.className = 'mainItem';
-              $(menu).append(`<a class="parentTitle ${menu_data.classes}" href="${menu_data.link}" target="${menu_data.target}">${menu_data.title}</a>`);
+              menu.className = `mainItem ${menu_data.classes} ${menu_data.title.toLowerCase()}-menu`;
+              $(menu).append(`<a class="parentTitle" href="${menu_data.link}" target="${menu_data.target}">${menu_data.title}</a>`);
+              $(menu).append(`<div class="subitems-container">
+                <div class="subitems-wrapper"></div>
+              </div>`);
   
               if(menu_data.children && menu_data.children.length>0) {
-                let subitems_container = document.createElement('ul');
-                subitems_container.className = 'subItems';
-                
+                let subitems = document.createElement('ul');
+                subitems.className = 'subItems';
+
                 $.each(menu_data.children, function (index, menu_item_data) {
-                  $(subitems_container).append(`<li class="subItem">
-                      <a class="link" href="${pytorch_site_url}${menu_item_data.link}" target="${menu_item_data.target}" class="${menu_data.classes}"s>
-                        <p class="title">${menu_item_data.title}</p>
-                        <p class="desc">
-                          ${menu_item_data.description}
-                        </p>
-                      </a>
+                  $(subitems).append(`<li class="subItem">
+                    <a class="link ${menu_data.classes}" href="${pytorch_site_url}${menu_item_data.link}" target="${menu_item_data.target}">
+                      <p class="title">${menu_item_data.title}</p>
+                    </a>
                   </li>`);
                 });
-  
-                let sub_menu = document.createElement('div');
-                sub_menu.className = 'subitems-container';
-                $(sub_menu).append(subitems_container);
-                $(menu).append(sub_menu);
+                
+                $(menu).find('.subitems-container .subitems-wrapper').append(subitems);
               }
-  
-              header_menu.append(menu);
+
+              main_header_nav.push(menu);
             });
 
+            header_menu.prepend(main_header_nav);
+
             if(window.theme_pytorch_project == 'tutorials') {
-              $('.navItemsContainer .mainItem a.parentTitle.tutorials').addClass('active');
+              $('.navItemsContainer .mainItem.tutorials').addClass('active');
             } else {
-              $('.navItemsContainer .mainItem a.parentTitle.docs').addClass('active');
+              $('.navItemsContainer .mainItem.docs').addClass('active');
             }
           }
   
