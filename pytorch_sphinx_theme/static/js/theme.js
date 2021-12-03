@@ -1027,7 +1027,7 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
               $('.navItemsContainer .mainItem.docs').addClass('active');
             }
           }
-  
+
           if(data.footer) {
             $.each(data.footer, function(key, menu_data) {
               let footer_menu = $('.Footer .footerNav');
@@ -1054,10 +1054,32 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
               footer_menu.append(menu);
             });
           }
+
+          if(data.follow) {
+            let follow_menu = document.createElement('div');
+            follow_menu.className = 'navItems-followContainer followMenu';
+            $(follow_menu).append('<div class="mainItem">Follow Us</div>');
+            $(follow_menu).append('<ul class="follow-list"></ul>');
+
+            $.each(data.follow, function(key, menu_data) {
+              let menu = document.createElement('li');
+              menu.className = 'mainItem';
+  
+              $(follow_menu).find('.follow-list').append(`<li class="followItem">
+                <a href="${menu_data.link}" target="${menu_data.target}" class="${menu_data.classes}">${menu_data.title}</a>
+              </li>`);
+            });
+
+            let footer_item = document.createElement('li');
+            footer_item.className = 'mainItem';
+            $(footer_item).append(follow_menu);
+
+            $('.Footer .footerNav').append(footer_item);
+          }
   
           if(data.legal) {
             $.each(data.legal, function(key, menu_data) {
-              $('.Footer .legalNav .legalNavList').prepend(`<li><a href="${pytorch_site_url}${menu_data.link}" target="${menu_data.target}" class="${menu_data.classes}">${menu_data.title}</a></li>`);
+              $('.Footer .legalNav .legalNavList').append(`<li><a href="${pytorch_site_url}${menu_data.link}" target="${menu_data.target}" class="${menu_data.classes}">${menu_data.title}</a></li>`);
             });
           }
         }
