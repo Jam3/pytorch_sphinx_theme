@@ -102,9 +102,22 @@
 
   {% include "fonts.html" %}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  
+  {% if theme_pytorch_project == 'tutorials' %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52DXT37"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  {% endif %}
 </head>
 
 <body class="pytorch-body{% if theme_pytorch_project == 'tutorials' %} tutorialsContainer{% endif %}">
+  {% if theme_pytorch_project == 'tutorials' %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52DXT37"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  {% endif %}
   {% block extrabody %} {% endblock %}
   {% include "header.html" %}
   
