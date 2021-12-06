@@ -10335,9 +10335,6 @@ p a:hover,
 article.pytorch-article .function dt:hover .viewcode-link,
 article.pytorch-article .attribute dt:hover .viewcode-link,
 article.pytorch-article .class dt:hover .viewcode-link,
-.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:link,
-.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:visited,
-.pytorch-right-menu .pytorch-side-scroll li a.side-scroll-highlight:hover,
 .pytorch-left-menu .versions .current-version.opened,
 .pytorch-left-menu .versions .custom-select a:hover,
 .sphinx-tabs .sphinx-tabs-panel .toctree-wrapper ul li.toctree-l1 a,
@@ -12771,6 +12768,13 @@ article.pytorch-article .section .cards > .cards-container .card .link a {
 .pytorch-right-menu .pytorch-side-scroll a:visited span.pre,
 .pytorch-right-menu .pytorch-side-scroll a:hover span.pre {
   color: #262626;
+}
+
+.pytorch-right-menu .pytorch-side-scroll ul li a.side-scroll-highlight,
+.pytorch-right-menu .pytorch-side-scroll ul li a.side-scroll-highlight:link,
+.pytorch-right-menu .pytorch-side-scroll ul li a.side-scroll-highlight:visited,
+.pytorch-right-menu .pytorch-side-scroll ul li a.side-scroll-highlight:hover {
+  color: #de3412;
 }
 
 .pytorch-right-menu .pytorch-side-scroll a.reference.internal.expanded:before,

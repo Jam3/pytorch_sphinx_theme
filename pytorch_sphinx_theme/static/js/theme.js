@@ -492,8 +492,6 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
     isFixedToBottom: false,
   
     bind: function() {
-      sideMenus.handleLeftMenu();
-  
       var rightMenuLinks = document.querySelectorAll("#pytorch-right-menu li");
       var rightMenuHasLinks = rightMenuLinks.length > 1;
   
@@ -578,16 +576,14 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
           }
         });
   
-        sideMenus.handleRightMenu();
+        //sideMenus.handleRightMenu();
       }
   
       $(window).on('resize scroll', function(e) {
-        sideMenus.handleNavBar();
-  
-        sideMenus.handleLeftMenu();
+        //sideMenus.handleNavBar();
   
         if (sideMenus.rightMenuIsOnScreen()) {
-          sideMenus.handleRightMenu();
+          //sideMenus.handleRightMenu();
         }
       });
     },
@@ -597,7 +593,9 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
     },
   
     handleNavBar: function() {
-      var mainHeaderHeight = document.getElementById('header-holder')?.offsetHeight;
+      var mainHeaderHeight = 0;
+      if(document.getElementById('header-holder'))
+        mainHeaderHeight = document.getElementById('header-holder').offsetHeight;
   
       // If we are scrolled past the main navigation header fix the sub menu bar to top of page
       if (mainHeaderHeight && utilities.scrollTop() >= mainHeaderHeight) {
@@ -632,19 +630,6 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
       }
     },
   
-    handleLeftMenu: function () {
-      var windowHeight = utilities.windowHeight();
-      var topOfFooterRelativeToWindow = document.getElementById("docs-tutorials-resources")?.getBoundingClientRect().top;
-  
-      if (topOfFooterRelativeToWindow && topOfFooterRelativeToWindow >= windowHeight) {
-        document.getElementById("pytorch-left-menu").style.height = "100%";
-      } else {
-        var howManyPixelsOfTheFooterAreInTheWindow = windowHeight - topOfFooterRelativeToWindow;
-        var leftMenuDifference = howManyPixelsOfTheFooterAreInTheWindow;
-        document.getElementById("pytorch-left-menu").style.height = (windowHeight - leftMenuDifference) + "px";
-      }
-    },
-  
     handleRightMenu: function() {
       var rightMenuWrapper = document.getElementById("pytorch-content-right");
       var rightMenu = document.getElementById("pytorch-right-menu");
@@ -652,7 +637,9 @@ require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=
       var article = document.getElementById("pytorch-article");
       var articleHeight = article.offsetHeight;
       var articleBottom = utilities.offset(article).top + articleHeight;
-      var mainHeaderHeight = document.getElementById('header-holder')?.offsetHeight;
+      var mainHeaderHeight = 0;
+      if(document.getElementById('header-holder'))
+        mainHeaderHeight = document.getElementById('header-holder').offsetHeight;
   
       if (mainHeaderHeight && utilities.scrollTop() < mainHeaderHeight) {
         rightMenuWrapper.style.height = "100%";
