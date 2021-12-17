@@ -10438,10 +10438,10 @@ ul.pytorch-breadcrumbs a {
 .rst-content footer .rating-container .stars-outer i {
   cursor: pointer;
 }
-.rst-content footer div[role="contentinfo"] {
+.rst-content div[role="contentinfo"] {
   padding-top: 2.5rem;
 }
-.rst-content footer div[role="contentinfo"] p {
+.rst-content div[role="contentinfo"] p {
   margin-bottom: 0;
 }
 
@@ -10519,6 +10519,10 @@ article.pytorch-article h4 a,
 article.pytorch-article h5 a,
 article.pytorch-article h6 a {
   color: #262626;
+}
+article.pytorch-article h2,
+article.pytorch-article h3 {
+  font-size: 2.4rem;
 }
 article.pytorch-article p.caption {
   margin-top: 1.25rem;
@@ -10746,6 +10750,7 @@ article.pytorch-article .class dt {
 article.pytorch-article .class dt em.property {
   position: absolute;
   left: 0.5rem;
+  font-size: 1.5rem;
 }
 article.pytorch-article .class dd .docutils dt {
   padding-left: 0.5rem;
@@ -11134,9 +11139,13 @@ img.previous-page {
 }
 
 .rst-footer-buttons {
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem;
+  margin-top: 4rem;
 }
+
+.rst-footer-buttons a.btn {
+  font-size: 1.6rem;
+}
+
 .rst-footer-buttons .btn:focus,
 .rst-footer-buttons .btn.focus {
   -webkit-box-shadow: none;
@@ -11181,7 +11190,7 @@ article.pytorch-article .math img {
 a:link,
 a:visited,
 a:hover {
-  color: initial;
+  color: #de3412;
 }
 
 .docs-tutorials-resources a {
@@ -11217,7 +11226,7 @@ a:hover {
 .pytorch-call-to-action-links a:last-of-type {
   margin-right: 0;
 }
-@media screen and (min-width: 1101px) {
+@media screen and (min-width: 1101px) { 
   .pytorch-call-to-action-links a {
     margin-right: 1rem;
     width: auto;
@@ -11482,7 +11491,7 @@ article.pytorch-article .tutorials-callout-container .text-container .body-parag
 }
 
 .tutorialsContainer article.pytorch-article .tutorials-callout-container .text-container .body-paragraph {
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 2.4rem;
 }
 
