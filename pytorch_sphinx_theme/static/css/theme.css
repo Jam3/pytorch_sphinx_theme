@@ -7146,6 +7146,8 @@ button.bg-dark:focus {
 
 .float-right {
   float: right !important;
+  right: 2rem;
+  position: absolute;
 }
 
 .float-none {
@@ -11140,10 +11142,21 @@ img.previous-page {
 
 .rst-footer-buttons {
   margin-top: 4rem;
+  position: relative;
 }
 
 .rst-footer-buttons a.btn {
   font-size: 1.6rem;
+}
+
+.rst-footer-buttons a.btn img {
+  width: initial !important;
+  margin-right: 0.5rem;
+}
+
+.rst-footer-buttons a.btn.float-right img {
+  margin-right: 0;
+  margin-left: 0.5rem;
 }
 
 .rst-footer-buttons .btn:focus,
@@ -12290,8 +12303,14 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 
 /* Index page tabs */
 article.pytorch-article > .section > .sphinx-tabs {
-  margin: 0;
-  margin-top: 5.6rem;
+  margin: 5.6rem 0 -3.2% 0;
+  width: 100%;
+}
+@media screen and (min-width: 1101px) {
+  article.pytorch-article > .section > .sphinx-tabs {
+    margin: 5.6rem 0 -3.2% -7.7%;
+    width: 150%;
+  }
 }
 
 .sphinx-tabs div[role="tablist"] {
@@ -12358,12 +12377,17 @@ article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type
   article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p {
     font-size: 2.4rem;
     line-height: 3.2rem;
-    width: 60%;
+    width: 75%;
   }
 
   article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type {
     font-size: 3rem;
     line-height: 4rem;
+  }
+
+  article.pytorch-article .section .sphinx-tabs .toctree-wrapper.compound,
+  article.pytorch-article .section .sphinx-tabs .wy-table-responsive {
+    width: 75%;
   }
 
   article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel .toctree-wrapper a {
@@ -12372,14 +12396,12 @@ article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type
   }
 
   article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel .toctree-wrapper ul {
-    width: 90%;
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
   }
 
   article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel .onecolumn .toctree-wrapper ul {
-    width: 90%;
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
@@ -12429,12 +12451,13 @@ article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type
     padding: 20px 0;
   }
   .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td:first-of-type {
-    width: 170px;
+    width: 15rem;
   }
   .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody td:last-of-type {
     display: grid;
     grid-template-columns: 1.5fr 3fr 1fr;
-    padding-top: 40px;
+    padding-top: 4rem;
+    padding-left: 3rem;
   }
 }
 
@@ -12489,9 +12512,6 @@ article.pytorch-article .section .sphinx-tabs .sphinx-tabs-panel p:first-of-type
   padding-right: 20px;
 }
 @media screen and (min-width: 1101px) {
-  .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table {
-    width: 90%;
-  }
   .sphinx-tabs .sphinx-tabs-panel .wy-table-responsive table tbody tr td:last-of-type p:last-of-type a:after {
     background-size: 8px;
     padding-bottom: 3px;
