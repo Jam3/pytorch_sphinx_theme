@@ -1,75 +1,17 @@
-<footer>
-  {% if (theme_prev_next_buttons_location == 'bottom' or theme_prev_next_buttons_location == 'both') and (next or prev) %}
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      {% if next %}
-        <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|striptags|e }}" accesskey="n" rel="next">{{ _('Next') }} <img src="{{ pathto('_static/images/chevron-right-orange.svg', 1) }}" class="next-page"></a>
-      {% endif %}
-      {% if prev %}
-        <a href="{{ prev.link|e }}" class="btn btn-neutral" title="{{ prev.title|striptags|e }}" accesskey="p" rel="prev"><img src="{{ pathto('_static/images/chevron-right-orange.svg', 1) }}" class="previous-page"> {{ _('Previous') }}</a>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  {% if theme_pytorch_project == 'tutorials' %}
-
-    <hr class="rating-hr hr-top">
-      <div class="rating-container">
-        <div class="rating-prompt">Rate this Tutorial</div>
-        <div class="stars-outer">
-          <i class="far fa-star" title="1 Star" data-behavior="tutorial-rating" data-count="1"></i>
-          <i class="far fa-star" title="2 Stars" data-behavior="tutorial-rating" data-count="2"></i>
-          <i class="far fa-star" title="3 Stars" data-behavior="tutorial-rating" data-count="3"></i>
-          <i class="far fa-star" title="4 Stars" data-behavior="tutorial-rating" data-count="4"></i>
-          <i class="far fa-star" title="5 Stars" data-behavior="tutorial-rating" data-count="5"></i>
-        </div>
-      </div>
-    <hr class="rating-hr hr-bottom"/>
-
-  {% else %}
-
-    <hr>
-
-  {% endif %}
-
-  <div role="contentinfo">
-    <p>
-    {%- if show_copyright %}
-      {%- if hasdoc('copyright') %}
-        {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
-      {%- else %}
-        {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
-      {%- endif %}
-    {%- endif %}
-
-    {%- if build_id and build_url %}
-      {% trans build_url=build_url, build_id=build_id %}
-        <span class="build">
-          Build
-          <a href="{{ build_url }}">{{ build_id }}</a>.
-        </span>
-      {% endtrans %}
-    {%- elif commit %}
-      {% trans commit=commit %}
-        <span class="commit">
-          Revision <code>{{ commit }}</code>.
-        </span>
-      {% endtrans %}
-    {%- elif last_updated %}
-      {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
-    {%- endif %}
-
-    </p>
+<footer class="Footer">
+  <hr>
+  <div class="mainNav">
+     <div class="logo">
+        <a href="{{ pytorch_site_url }}">
+           <svg width="30" height="35" viewBox="0 0 30 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24.8384 10.3748L22.3344 12.8296C26.5077 16.9211 26.5077 23.5842 22.3344 27.6757C18.1612 31.7671 11.3647 31.7671 7.19148 27.6757C3.01823 23.5842 3.01823 16.9211 7.19148 12.8296L13.8687 6.28337L14.7033 5.34818V0.438477L4.56829 10.3748C-1.03579 15.869 -1.03579 24.6363 4.56829 30.1305C10.1724 35.6247 19.1151 35.6247 24.7191 30.1305C30.4424 24.6363 30.4424 15.7521 24.8384 10.3748Z" fill="#de3412"></path>
+              <ellipse cx="19.8316" cy="7.80298" rx="1.90777" ry="1.87036" fill="#de3412"></ellipse>
+           </svg>
+        </a>
+     </div>
+     <ul class="footerNav"></ul>
   </div>
-
-  {%- if show_sphinx %}
-    {% trans %}
-      <div>
-        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-      </div>
-    {% endtrans %}
-  {%- endif %}
-
-  {%- block extrafooter %} {% endblock %}
-
+  <div class="legalNav">
+    <ul class="legalNavList"></ul>
+  </div>
 </footer>
-
